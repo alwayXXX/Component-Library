@@ -24,6 +24,7 @@ export default defineConfig({
   build: {
     rollupOptions,
     minify: false,
+    sourcemap: true,
     cssCodeSplit: true,
     // 添加库模式配置
     lib: {
