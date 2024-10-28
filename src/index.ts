@@ -1,4 +1,4 @@
-import { createApp } from 'vue/dist/vue.esm-browser'
+import { createApp } from 'vue'
 import SSYUI from './entry'
 
 createApp({

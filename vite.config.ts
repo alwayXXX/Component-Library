@@ -1,17 +1,20 @@
+/// <reference types="vitest/config" />
+import type { BuildOptions } from 'vite'
+import { resolve } from 'node:path'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-/// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
 
 // import { presetUno, presetAttributify, presetIcons } from "unocss";
 import Unocss from 'unocss/vite'
 
-const rollupOptions = {
-  external: ['vue', 'vue-router'],
+const rollupOptions: BuildOptions['rollupOptions'] = {
+  external: ['vue'],
   output: {
     globals: {
       vue: 'Vue',
     },
+    exports: 'named',
   },
 }
 
@@ -23,16 +26,17 @@ export default defineConfig({
   ],
   build: {
     rollupOptions,
-    minify: false,
-    sourcemap: true,
+    minify: 'terser',
+    sourcemap: false,
+    reportCompressedSize: true,
     cssCodeSplit: true,
     // 添加库模式配置
     lib: {
-      entry: './src/entry.ts',
+      entry: resolve(__dirname, 'src/entry.ts'),
       name: 'SSYUI',
       fileName: 'alwayxx-ui',
       // 导出模块格式
-      formats: ['es', 'umd', 'iife'],
+      formats: ['es', 'umd'],
     },
   },
   test: {
@@ -41,5 +45,10 @@ export default defineConfig({
     // simulate DOM with happy-dom
     // (requires installing happy-dom as a peer dependency)
     environment: 'happy-dom',
+  },
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.esm-bundler.js',
+    },
   },
 })
