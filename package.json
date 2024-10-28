@@ -1,12 +1,13 @@
 {
   "name": "alwayxx-ui-vite",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "",
   "author": "",
   "license": "ISC",
   "keywords": [],
   "main": "index.js",
+  "files": ["dist"],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -50,5 +51,9 @@
     "cz-customizable": {
       "config": ".cz-config.cjs"
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
