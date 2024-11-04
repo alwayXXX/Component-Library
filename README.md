@@ -44,3 +44,6 @@ createApp(App).use(SSYUI).mount('#app')
 
 ## Quick Start
 如果希望尽快上手，可以访问[快速上手](https://component-library-h8nqx5edq-alwayxxs-projects.vercel.app/)
+
+## 欢迎提PR
+一起加入项目
