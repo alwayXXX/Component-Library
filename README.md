@@ -9,7 +9,12 @@
 </p>
 
 <p align="center">
+<a>
 <img src="https://img.shields.io/github/license/alwayXXX/Component-Library?color=blue">
+</a>
+<a href="https://codecov.io/github/alwayXXX/Component-Library" >
+ <img src="https://codecov.io/github/alwayXXX/Component-Library/graph/badge.svg?token=PLBOCCQEYX"/>
+ </a>
 </p>
 
 ## Feature
