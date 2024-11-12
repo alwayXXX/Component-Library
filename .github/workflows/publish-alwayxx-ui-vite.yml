@@ -2,18 +2,42 @@ name: PublishToNpm
 
 on:
   push:
-    branches: [publish-alwayxx-ui-vite]
+    # tags:
+    #   - 'v*' # 推送 tag 为 v 开头时触发，比下面的推送到分支触发更正规些，自己选择
+    branches: [feature-monorepo]
 
 jobs:
   publish:
+    permissions:
+      id-token: write
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
         with:
-          version: 9.8.0
-      - run: pnpm install
-      - run: pnpm run build
-      - uses: JS-DevTools/npm-publish@v1
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set node
+        uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          node-version: lts/*
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: PNPM build
+        run: pnpm run build
+
+      - name: copy readme
+        run: cp README.md ./packages/ui/
+
+      - name: Publish to NPM
+        run: pnpm -r publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NPM_CONFIG_PROVENANCE: false
