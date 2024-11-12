@@ -4,7 +4,7 @@ on:
   push:
     # tags:
     #   - 'v*' # 推送 tag 为 v 开头时触发，比下面的推送到分支触发更正规些，自己选择
-    branches: [feature-monorepo]
+    branches: [master]
 
 jobs:
   publish:
