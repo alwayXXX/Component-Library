@@ -1,6 +1,6 @@
 <br/>
 <p align="center">
-<img src="https://github.com/alwayXXX/Component-Library/tree/master/assets/logo.png" style="width: 200px">
+<img src="https://vitejs.dev/logo-with-name-light.png" style="width: 200px">
 </p>
 
 <h1 align="center">ALWAYXXX-UI-VITE</h1>
