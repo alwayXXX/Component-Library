@@ -9,9 +9,9 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:dev": "vitepress dev ../../docs",
+    "docs:build": "vitepress build ../../docs",
+    "docs:serve": "vitepress serve ../../docs"
   },
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^4.0.1",
