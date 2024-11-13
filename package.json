@@ -14,7 +14,7 @@
     "dev": "pnpm --dir ./packages/ui dev",
     "build": "pnpm --dir ./packages/ui build",
     "docs:dev": "pnpm --dir ./packages/docs dev",
-    "docs:build": "pnpm --dir ./packages/docs build",
+    "docs:build": "pnpm --dir ./packages/docs docs:build",
     "docs:serve": "pnpm --dir ./packages/docs serve",
     "publish-all": "pnpm -r publish --access public"
   },
